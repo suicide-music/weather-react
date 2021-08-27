@@ -1,0 +1,24 @@
+.city-search {
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 2px;
+  background-color: white;
+  color: #171254;
+}
+
+button {
+  border-radius: 5px;
+  color: #171254;
+  background-color: white;
+  border: 1px solid #171254;
+  margin: 5px;
+  transition: all 200ms ease-in-out;
+}
+button:hover {
+  background: #171254;
+  color: white;
+}
+
+#city-input {
+  width: 60%;
+}

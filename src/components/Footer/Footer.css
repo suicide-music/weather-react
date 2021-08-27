@@ -1,0 +1,12 @@
+.author {
+  text-align: right;
+  padding-top: 20px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+  color: inherit;
+}

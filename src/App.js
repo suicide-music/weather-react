@@ -1,26 +1,19 @@
-import logo from "./logo.svg";
+import React from "react";
+import CityDate from "./components/CityDate/CityDate";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import WindHumidity from "./components/WindHumidity/WindHumidity";
+import Footer from "./components/Footer/Footer";
+import SearchForm from "./components/SearchForm/SearchForm";
 import "./App.css";
-import axios from "axios";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code> src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CityDate />
+      <CurrentWeather />
+      <WindHumidity />
+      <SearchForm />
+      <Footer />
     </div>
   );
 }
-
-export default App;

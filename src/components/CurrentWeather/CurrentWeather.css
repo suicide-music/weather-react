@@ -1,0 +1,18 @@
+.current-temperature {
+  font-size: 100px;
+}
+.current-weather {
+  font-size: 50px;
+  position: relative;
+  top: 20px;
+}
+.temperature-today {
+  font-size: 30px;
+  position: relative;
+  top: 37px;
+  right: 3px;
+}
+
+.temperature-all {
+  margin: 0 auto;
+}
