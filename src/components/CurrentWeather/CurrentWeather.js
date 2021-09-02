@@ -3,39 +3,41 @@ import axios from "axios";
 import "./CurrentWeather.css";
 
 export default function CurrentWeather(props) {
-  let [temperature, setTemperature] = useState("null");
-  let [ready, setReady] = useState("false");
-  let [humidity, setHumidity] = useState("null");
-  let [wind, setWind] = useState("null");
+  let [weatherData, setWeatherData] = useState("null");
+
   function handleResponse(response) {
-    setReady(true);
-    setTemperature(Math.round(response.data.main.temp));
-    setHumidity(response.data.main.humidity);
-    setWind(Math.round(response.data.wind.speed));
+    setWeatherData({
+      ready: true,
+      temperature: Math.round(response.data.main.temp),
+      humidity: response.data.main.humidity,
+      wind: Math.round(response.data.wind.speed),
+      description: response.data.weather[0].main,
+      date: "Tuesday 20:00",
+    });
   }
 
-  if (ready === true) {
+  if (weatherData.ready === true) {
     return (
       <div className="CurrentWeather">
         <div className="CityDate">
           <h1>London</h1>
-          <h2>Monday 15:00</h2>
+          <h2>{weatherData.date}</h2>
         </div>
         <div className="row temperature-all">
           <div className="current-weather col-12" id="description">
-            Clear <i className="fas fa-sun"></i>
+            {weatherData.description} <i className="fas fa-sun"></i>
           </div>
 
           <div className="current-temperature col-12" id="current-temp">
-            {temperature}°C
+            {weatherData.temperature}°C
           </div>
         </div>
         <div className="WindHumidity">
           <div className="extra-info">
-            Humidity: <span id="humidity">{humidity}</span>%
+            Humidity: <span id="humidity">{weatherData.humidity}</span>%
           </div>
           <div className="extra-info">
-            Wind: <span id="wind">{wind} </span>m/s
+            Wind: <span id="wind">{weatherData.wind}</span>m/s
           </div>
         </div>
       </div>
