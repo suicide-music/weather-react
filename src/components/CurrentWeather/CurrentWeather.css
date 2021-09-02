@@ -26,3 +26,10 @@ h2 {
 .temperature-all {
   margin: 0 auto;
 }
+.extra-info {
+  font-size: 30px;
+}
+
+.WindHumidity {
+  padding-bottom: 20px;
+}

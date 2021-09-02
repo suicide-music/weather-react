@@ -5,9 +5,13 @@ import "./CurrentWeather.css";
 export default function CurrentWeather(props) {
   let [temperature, setTemperature] = useState("null");
   let [ready, setReady] = useState("false");
+  let [humidity, setHumidity] = useState("null");
+  let [wind, setWind] = useState("null");
   function handleResponse(response) {
     setReady(true);
     setTemperature(Math.round(response.data.main.temp));
+    setHumidity(response.data.main.humidity);
+    setWind(Math.round(response.data.wind.speed));
   }
 
   if (ready === true) {
@@ -24,6 +28,14 @@ export default function CurrentWeather(props) {
 
           <div className="current-temperature col-12" id="current-temp">
             {temperature}°C
+          </div>
+        </div>
+        <div className="WindHumidity">
+          <div className="extra-info">
+            Humidity: <span id="humidity">{humidity}</span>%
+          </div>
+          <div className="extra-info">
+            Wind: <span id="wind">{wind} </span>m/s
           </div>
         </div>
       </div>
