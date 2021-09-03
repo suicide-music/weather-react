@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CurrentWeather.css";
+import EditedDate from "./EditedDate";
 
 export default function CurrentWeather(props) {
   let [weatherData, setWeatherData] = useState("null");
@@ -12,7 +13,7 @@ export default function CurrentWeather(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       description: response.data.weather[0].main,
-      date: "Tuesday 20:00",
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -20,8 +21,10 @@ export default function CurrentWeather(props) {
     return (
       <div className="CurrentWeather">
         <div className="CityDate">
-          <h1>London</h1>
-          <h2>{weatherData.date}</h2>
+          <h1>{props.defaultCity}</h1>
+          <h2>
+            <EditedDate date={weatherData.date} />
+          </h2>
         </div>
         <div className="row temperature-all">
           <div className="current-weather col-12" id="description">
