@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherForecastDay from "./WeatherForecastDay";
+import Loader from "react-loader-spinner";
 
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState("false");
@@ -16,6 +17,7 @@ export default function Forecast(props) {
       <div className="Forecast row">
         <div className="col-3">
           <WeatherForecastDay data={forecast[0]} />
+          <WeatherForecastDay data={forecast[0]} />
         </div>
       </div>
     );
@@ -25,6 +27,17 @@ export default function Forecast(props) {
     let lat = props.coordinates.lat;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-    return null;
+    return (
+      <span>
+        Loading...{" "}
+        <Loader
+          type="TailSpin"
+          color="white"
+          height={100}
+          width={100}
+          timeout={30000}
+        />
+      </span>
+    );
   }
 }

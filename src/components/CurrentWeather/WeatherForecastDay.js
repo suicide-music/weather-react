@@ -3,7 +3,7 @@ import Icon from "./Icon";
 
 export default function WeatherForecastDay(props) {
   return (
-    <div>
+    <div className="WeatherForecastDay">
       <div>{props.data.dt}</div>
       <div>
         <Icon data={props.data.weather[0].icon} size={30} />
