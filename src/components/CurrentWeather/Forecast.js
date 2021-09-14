@@ -11,18 +11,19 @@ export default function Forecast(props) {
   }
 
   if (loaded === true) {
+    console.log(forecast);
     return (
       <div className="Forecast row">
         <div className="col-3">
-          <div>Tue</div>
+          <div>{forecast[0].dt}</div>
           <div>
-            <Icon data="01d" size={30} />
+            <Icon data={forecast[0].weather[0].icon} size={30} />
           </div>
           <div></div>
           <span>
-            <strong>°</strong>{" "}
+            <strong>{Math.round(forecast[0].temp.max)}°</strong>{" "}
           </span>
-          <span>°</span>
+          <span>{Math.round(forecast[0].temp.min)}°</span>
         </div>
         <div className="col-3">
           <div>Tue</div>
