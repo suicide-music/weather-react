@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./CurrentWeather.css";
 import EditedDate from "./EditedDate";
+import Icon from "./Icon";
+
 export default function CurrentWeather(props) {
   let [weatherData, setWeatherData] = useState("null");
   let [city, setCity] = useState(props.defaultCity);
@@ -14,7 +16,7 @@ export default function CurrentWeather(props) {
       description: response.data.weather[0].main,
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
-      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
   function search() {
@@ -42,7 +44,7 @@ export default function CurrentWeather(props) {
         </div>
         <div className="row temperature-all">
           <div className="current-weather col-12" id="description">
-            {weatherData.description} <img src={weatherData.iconUrl} />
+            {weatherData.description} <Icon data={weatherData.icon} />
           </div>
 
           <div className="current-temperature col-12" id="current-temp">
