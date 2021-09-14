@@ -11,6 +11,7 @@ export default function CurrentWeather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
@@ -20,6 +21,7 @@ export default function CurrentWeather(props) {
       icon: response.data.weather[0].icon,
     });
   }
+
   function search() {
     let apiKey = "b9d5278f163570dd5cc1638d250bbe97";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -60,7 +62,7 @@ export default function CurrentWeather(props) {
             Wind: <span id="wind">{weatherData.wind}</span>m/s
           </div>
         </div>
-        <Forecast />
+        <Forecast coordinates={weatherData.coordinates} />
         <div className="SearchForm">
           <form onSubmit={handleSubmit}>
             <button id="current-location-button">
