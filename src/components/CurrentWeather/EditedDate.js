@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function EditedDate(props) {
   let days = [
     "Sunday",
@@ -9,7 +7,6 @@ export default function EditedDate(props) {
     "Thursday",
     "Friday",
     "Saturday",
-    ,
   ];
   let day = days[props.date.getDay()];
   let hours = props.date.getHours();
