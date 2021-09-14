@@ -3,6 +3,7 @@ import axios from "axios";
 import "./CurrentWeather.css";
 import EditedDate from "./EditedDate";
 import Icon from "./Icon";
+import Forecast from "./Forecast";
 
 export default function CurrentWeather(props) {
   let [weatherData, setWeatherData] = useState("null");
@@ -44,7 +45,7 @@ export default function CurrentWeather(props) {
         </div>
         <div className="row temperature-all">
           <div className="current-weather col-12" id="description">
-            {weatherData.description} <Icon data={weatherData.icon} />
+            {weatherData.description} <Icon data={weatherData.icon} size={40} />
           </div>
 
           <div className="current-temperature col-12" id="current-temp">
@@ -59,6 +60,7 @@ export default function CurrentWeather(props) {
             Wind: <span id="wind">{weatherData.wind}</span>m/s
           </div>
         </div>
+        <Forecast />
         <div className="SearchForm">
           <form onSubmit={handleSubmit}>
             <button id="current-location-button">
