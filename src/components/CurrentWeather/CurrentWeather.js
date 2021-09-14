@@ -14,6 +14,7 @@ export default function CurrentWeather(props) {
       description: response.data.weather[0].main,
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
+      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
   function search() {
@@ -41,7 +42,7 @@ export default function CurrentWeather(props) {
         </div>
         <div className="row temperature-all">
           <div className="current-weather col-12" id="description">
-            {weatherData.description} <i className="fas fa-sun"></i>
+            {weatherData.description} <img src={weatherData.iconUrl} />
           </div>
 
           <div className="current-temperature col-12" id="current-temp">
