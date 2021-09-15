@@ -4,7 +4,7 @@ import "./CurrentWeather.css";
 import EditedDate from "./EditedDate";
 import Icon from "./Icon";
 import Forecast from "./Forecast";
-
+import Loader from "react-loader-spinner";
 export default function CurrentWeather(props) {
   let [weatherData, setWeatherData] = useState("null");
   let [city, setCity] = useState(props.defaultCity);
@@ -23,7 +23,7 @@ export default function CurrentWeather(props) {
   }
 
   function search() {
-    let apiKey = "b9d5278f163570dd5cc1638d250bbe97";
+    let apiKey = "e04ed5ebec9aabea61d0d3944875e91f";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(handleResponse);
   }
@@ -87,6 +87,17 @@ export default function CurrentWeather(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <span>
+        Loading...{" "}
+        <Loader
+          type="TailSpin"
+          color="white"
+          height={50}
+          width={50}
+          timeout={30000}
+        />
+      </span>
+    );
   }
 }

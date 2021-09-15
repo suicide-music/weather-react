@@ -22,7 +22,7 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    let apiKey = `b9d5278f163570dd5cc1638d250bbe97`;
+    let apiKey = `e04ed5ebec9aabea61d0d3944875e91f`;
     let lon = props.coordinates.lon;
     let lat = props.coordinates.lat;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
