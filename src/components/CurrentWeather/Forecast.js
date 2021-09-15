@@ -4,8 +4,8 @@ import WeatherForecastDay from "./WeatherForecastDay";
 import Loader from "react-loader-spinner";
 
 export default function Forecast(props) {
-  let [loaded, setLoaded] = useState("false");
-  let [forecast, setForecast] = useState("null");
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
   function handleResponse(response) {
     setLoaded(true);
     setForecast(response.data.daily);
