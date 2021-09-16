@@ -70,7 +70,7 @@ button:hover {
   width: 20%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .current-temperature {
     font-size: 75px;
   }
