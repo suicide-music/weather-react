@@ -19,19 +19,19 @@ export default function Forecast(props) {
   if (loaded === true) {
     return (
       <div className="Forecast row">
-        <div className="col-3">
+        <div className="col-3 small-screen">
           <WeatherForecastDay data={forecast[0]} />
         </div>
-        <div className="col-3">
+        <div className="col-3 small-screen">
           <WeatherForecastDay data={forecast[1]} />
         </div>
-        <div className="col-3">
+        <div className="col-3 small-screen">
           <WeatherForecastDay data={forecast[2]} />
         </div>
-        <div className="col-3">
+        <div className="col-3 d-none d-sm-block d-sm-none d-md-block">
           <WeatherForecastDay data={forecast[3]} />
         </div>
-        <div className="col-3">
+        <div className="col-3 d-none d-sm-block d-sm-none d-md-block">
           <WeatherForecastDay data={forecast[4]} />
         </div>
       </div>

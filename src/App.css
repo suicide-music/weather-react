@@ -8,3 +8,10 @@
   color: white;
   margin: 15px auto;
 }
+
+@media (max-width: 600px) {
+  .App {
+    border-radius: 0;
+    margin: 0 auto;
+  }
+}

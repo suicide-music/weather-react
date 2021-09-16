@@ -69,3 +69,19 @@ button:hover {
 .col-3 {
   width: 20%;
 }
+
+@media (max-width: 600px) {
+  .current-temperature {
+    font-size: 75px;
+  }
+  .current-weather {
+    font-size: 40px;
+  }
+  .small-screen {
+    width: 33%;
+  }
+
+  button {
+    display: none;
+  }
+}
