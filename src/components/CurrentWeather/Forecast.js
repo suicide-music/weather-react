@@ -6,18 +6,29 @@ import Loader from "react-loader-spinner";
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
+
   function handleResponse(response) {
-    setLoaded(true);
     setForecast(response.data.daily);
+    setLoaded(true);
   }
 
   if (loaded === true) {
-    console.log(forecast);
     return (
       <div className="Forecast row">
         <div className="col-3">
           <WeatherForecastDay data={forecast[0]} />
+        </div>
+        <div className="col-3">
+          <WeatherForecastDay data={forecast[1]} />
+        </div>
+        <div className="col-3">
           <WeatherForecastDay data={forecast[0]} />
+        </div>
+        <div className="col-3">
+          <WeatherForecastDay data={forecast[1]} />
+        </div>
+        <div className="col-3">
+          <WeatherForecastDay data={forecast[1]} />
         </div>
       </div>
     );

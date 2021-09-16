@@ -5,6 +5,7 @@ import EditedDate from "./EditedDate";
 import Icon from "./Icon";
 import Forecast from "./Forecast";
 import Loader from "react-loader-spinner";
+
 export default function CurrentWeather(props) {
   let [weatherData, setWeatherData] = useState("null");
   let [city, setCity] = useState(props.defaultCity);
