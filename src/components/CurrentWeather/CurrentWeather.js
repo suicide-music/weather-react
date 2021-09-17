@@ -79,14 +79,10 @@ export default function CurrentWeather(props) {
         </div>
         <Forecast coordinates={weatherData.coordinates} />
         <div className="SearchForm">
-          <button
-            id="current-location-button"
-            className=""
-            onClick={getPosition}
-          >
+          <button id="current-location-button" onClick={getPosition}>
             <i className="fas fa-map-marker-alt"></i>
           </button>
-          <form onSubmit={handleSubmit} className="">
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Change city"
