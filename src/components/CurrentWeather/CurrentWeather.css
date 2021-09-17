@@ -54,6 +54,10 @@ button:hover {
   color: white;
 }
 
+form {
+  display: inline;
+}
+
 #city-input {
   width: 60%;
 }
